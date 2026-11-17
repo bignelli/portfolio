@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 400" width="100%" height="100%">
+  <defs>
+    <linearGradient id="avatarGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#3b82f6" />
+      <stop offset="50%" stop-color="#6366f1" />
+      <stop offset="100%" stop-color="#8b5cf6" />
+    </linearGradient>
+    <linearGradient id="ringGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#60a5fa" />
+      <stop offset="100%" stop-color="#a855f7" />
+    </linearGradient>
+  </defs>
+  <!-- Background circle -->
+  <rect width="400" height="400" fill="#0f172a" />
+  <circle cx="200" cy="200" r="170" fill="url(#avatarGrad)" opacity="0.15" />
+  <circle cx="200" cy="200" r="160" fill="none" stroke="url(#ringGrad)" stroke-width="4" stroke-dasharray="8 6" opacity="0.6" />
+  
+  <!-- Silhouette / Placeholder Art -->
+  <circle cx="200" cy="155" r="55" fill="url(#avatarGrad)" />
+  <path d="M110 310 C110 240, 150 220, 200 220 C250 220, 290 240, 290 310 Z" fill="url(#avatarGrad)" />
+  
+  <!-- Monogram Overlay -->
+  <circle cx="200" cy="155" r="42" fill="#0f172a" opacity="0.4" />
+  <text x="200" y="166" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif" font-size="34" font-weight="700" fill="#ffffff" text-anchor="middle" letter-spacing="2">GB</text>
+  
+  <!-- Tech badges floating -->
+  <rect x="55" y="170" width="70" height="28" rx="14" fill="#1e293b" stroke="#3b82f6" stroke-width="1.5" />
+  <text x="90" y="188" font-family="sans-serif" font-size="12" font-weight="600" fill="#60a5fa" text-anchor="middle">Rust</text>
+  
+  <rect x="275" y="170" width="75" height="28" rx="14" fill="#1e293b" stroke="#8b5cf6" stroke-width="1.5" />
+  <text x="312" y="188" font-family="sans-serif" font-size="12" font-weight="600" fill="#c084fc" text-anchor="middle">Python</text>
+
+  <rect x="160" y="325" width="80" height="26" rx="13" fill="#1e293b" stroke="#10b981" stroke-width="1.5" />
+  <text x="200" y="342" font-family="sans-serif" font-size="11" font-weight="600" fill="#34d399" text-anchor="middle">Backend</text>
+</svg>
