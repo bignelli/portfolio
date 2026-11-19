@@ -78,6 +78,7 @@ html {
   font-family: "JetBrains Mono", monospace;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
 }
 
 body {
@@ -93,6 +94,7 @@ body {
   min-height: 100vh;
   background-color: var(--bg-primary);
   color: var(--text-primary);
+  overflow-x: hidden;
 }
 
 .container {
@@ -1016,6 +1018,10 @@ a {
 }
 
 @media (max-width: 768px) {
+  .navbar-container {
+    padding: 0 1.25rem;
+  }
+
   .nav-hamburger {
     display: flex;
   }
@@ -1057,7 +1063,51 @@ a {
   }
 }
 
+@media (max-width: 640px) {
+  .navbar-container {
+    padding: 0 1rem;
+  }
+
+  /* Hide prefixes on compact screens to keep buttons on-screen */
+  .control-prefix {
+    display: none;
+  }
+
+  .control-btn {
+    padding: 0.32rem 0.55rem;
+    font-size: 0.72rem;
+  }
+
+  .nav-controls {
+    gap: 0.4rem;
+  }
+}
+
 @media (max-width: 480px) {
+  .navbar-container {
+    padding: 0 0.85rem;
+  }
+
+  /* Show compact brand [gb] on mobile */
+  .nav-brand-name {
+    display: none;
+  }
+
+  .control-btn {
+    padding: 0.28rem 0.48rem;
+    font-size: 0.7rem;
+    letter-spacing: 0.3px;
+  }
+
+  .nav-controls {
+    gap: 0.35rem;
+  }
+
+  .nav-hamburger {
+    width: 24px;
+    height: 18px;
+  }
+
   .hero-title {
     font-size: 2.5rem;
   }

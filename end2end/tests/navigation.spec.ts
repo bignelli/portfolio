@@ -33,4 +33,33 @@ test.describe("Navigation & Responsive Menu", () => {
     await aboutLink.click();
     await expect(navLinks).not.toHaveClass(/active/);
   });
+
+  test("should fit all navbar controls and brand within viewport on mobile without horizontal scroll", async ({ page }) => {
+    // Set narrow mobile viewport (e.g. 360px wide)
+    await page.setViewportSize({ width: 360, height: 740 });
+
+    const navControls = page.locator(".nav-controls");
+    await expect(navControls).toBeVisible();
+
+    const modeBtn = page.locator('.control-btn:has(.control-val:text-matches("LIGHT|DARK"))');
+    await expect(modeBtn).toBeVisible();
+
+    const langBtn = page.locator('.control-btn:has(.control-val:text-matches("PT|EN"))');
+    await expect(langBtn).toBeVisible();
+
+    const hamburger = page.locator(".nav-hamburger");
+    await expect(hamburger).toBeVisible();
+
+    // Verify all control buttons fit entirely within the 360px viewport
+    const hamburgerBox = await hamburger.boundingBox();
+    expect(hamburgerBox).not.toBeNull();
+    if (hamburgerBox) {
+      expect(hamburgerBox.x + hamburgerBox.width).toBeLessThanOrEqual(360);
+    }
+
+    // Verify no horizontal document overflow
+    const scrollWidth = await page.evaluate(() => document.documentElement.scrollWidth);
+    const clientWidth = await page.evaluate(() => document.documentElement.clientWidth);
+    expect(scrollWidth).toBeLessThanOrEqual(clientWidth);
+  });
 });
